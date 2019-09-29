@@ -2,8 +2,7 @@ package com.dil.calories.model;
 
 import java.time.LocalDateTime;
 
-public class Meal {
-    private Integer id;
+public class Meal extends AbstractBaseEntity {
 
     private LocalDateTime dateTime;
 
@@ -12,18 +11,10 @@ public class Meal {
     private int calories;
 
     public Meal(Integer id, LocalDateTime dateTime, String description, int calories) {
-        this.id = id;
+        super(id);
         this.dateTime = dateTime;
         this.description = description;
         this.calories = calories;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public LocalDateTime getDateTime() {
@@ -48,5 +39,15 @@ public class Meal {
 
     public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "dateTime=" + dateTime +
+                ", description='" + description + '\'' +
+                ", calories=" + calories +
+                ", id=" + id +
+                '}';
     }
 }
