@@ -1,10 +1,22 @@
 package com.dil.calories.web;
 
+import org.slf4j.Logger;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class UserServlet extends javax.servlet.http.HttpServlet {
+import static org.slf4j.LoggerFactory.getLogger;
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        request.getRequestDispatcher("/userList.jsp").forward(request, response);
+public class UserServlet extends HttpServlet {
+    private static final Logger log = getLogger(UserServlet.class);
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        log.debug("redirect to users");
+
+//        request.getRequestDispatcher("/users.jsp").forward(request, response);
+        response.sendRedirect("users.jsp");
     }
 }
